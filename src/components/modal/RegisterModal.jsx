@@ -49,7 +49,7 @@ class RegisterModal extends Form {
           <Modal.Header>회원가입</Modal.Header>
 
           <Modal.Body>
-            {this.renderInput('username', 'Username')}
+            {this.renderInput('username', 'Id')}
             {this.renderInput('password', 'Password', 'password')}
             {this.renderInput('name', 'Name')}
           </Modal.Body>

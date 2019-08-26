@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getBestReviews } from '../services/reviewService';
-import moment from 'moment';
+import './BestReviewsTable.scss';
+
 class BestReviewsTable extends Component {
   state = {
     column: ['번호', '영화', '제목', '작성자', '조회수'],
@@ -45,10 +46,10 @@ class BestReviewsTable extends Component {
                   {index + 1}
                 </td>
 
-                <td className="text-center" style={{ width: '10%' }}>
+                <td className="text-center" style={{ width: '15%' }}>
                   {currentElement.movie.name}
                 </td>
-                <td className="text-center" style={{ width: '60%' }}>
+                <td className="text-center" style={{ width: '55%' }}>
                   <Link to={'/review/' + currentElement._id}>
                     {currentElement.title}
                   </Link>

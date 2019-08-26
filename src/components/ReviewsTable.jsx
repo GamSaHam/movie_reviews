@@ -45,10 +45,10 @@ class ReviewsTable extends Component {
                   {index + 1}
                 </td>
 
-                <td className="text-center" style={{ width: '10%' }}>
+                <td className="text-center" style={{ width: '15%' }}>
                   {currentElement.movie.name}
                 </td>
-                <td className="text-center" style={{ width: '60%' }}>
+                <td className="text-center" style={{ width: '55%' }}>
                   <Link to={'/review/' + currentElement._id}>
                     {currentElement.title}
                   </Link>
