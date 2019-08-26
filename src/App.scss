@@ -1,0 +1,14 @@
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .main {
+    margin-left: 220px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+}
