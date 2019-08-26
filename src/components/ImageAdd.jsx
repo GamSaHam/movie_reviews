@@ -19,12 +19,14 @@ export default class ImageAdd extends Component {
       data.append('file', files[0]);
       // data.append('filename', this.fileName.value);
       console.log('uploading');
-      fetch('http://localhost:3900/upload', {
+      fetch('https://moviereviewsapi.herokuapp.com/upload', {
         method: 'POST',
         body: data
       }).then(response => {
         response.json().then(body => {
-          this.setState({ imageURL: `http://localhost:3900${body.file}` });
+          this.setState({
+            imageURL: `https://moviereviewsapi.herokuapp.com${body.file}`
+          });
           console.log(this.state.imageURL);
           this.addImage();
         });
