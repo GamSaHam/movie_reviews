@@ -131,11 +131,24 @@ class BoardReviewsTable extends Component {
         <table className="table">
           <thead>
             <tr>
-              {this.state.column.map(value => (
-                <th scope="col" className="text-center">
-                  {value}
-                </th>
-              ))}
+              <th scope="col" className="text-center">
+                번호
+              </th>
+              <th scope="col" className="text-center d-none d-lg-table-cell">
+                영화
+              </th>
+              <th scope="col" className="text-center">
+                제목
+              </th>
+              <th scope="col" className="text-center">
+                작성자
+              </th>
+              <th scope="col" className="text-center d-none d-lg-table-cell">
+                등록일
+              </th>
+              <th scope="col" className="text-center">
+                조회수
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -145,10 +158,11 @@ class BoardReviewsTable extends Component {
                   <td className="text-center" style={{ width: '10%' }}>
                     {index + 1}
                   </td>
-
-                  <td className="text-center" style={{ width: '10%' }}>
-                    {currentElement.movie.name}
-                  </td>
+                  <div className="d-none d-lg-block">
+                    <td className="text-center" style={{ width: '10%' }}>
+                      {currentElement.movie.name}
+                    </td>
+                  </div>
                   <td className="text-center" style={{ width: '50%' }}>
                     <Link to={'/review/' + currentElement._id}>
                       {currentElement.title}
@@ -157,9 +171,11 @@ class BoardReviewsTable extends Component {
                   <td className="text-center" style={{ width: '10%' }}>
                     {currentElement.userName}
                   </td>
-                  <td className="text-center" style={{ width: '10%' }}>
-                    {moment(currentElement.publishDate).format('YYYY-MM-D')}
-                  </td>
+                  <div className="d-none d-lg-block">
+                    <td className="text-center" style={{ width: '10%' }}>
+                      {moment(currentElement.publishDate).format('YYYY-MM-D')}
+                    </td>
+                  </div>
                   <td className="text-center" style={{ width: '10%' }}>
                     {currentElement.views}
                   </td>
@@ -170,7 +186,7 @@ class BoardReviewsTable extends Component {
         </table>
 
         <div className="mt-1 row">
-          <div className="col-4">
+          <div className="col-4 d-none d-lg-block">
             <form
               className="form-inline my-2 my-lg-0"
               onSubmit={this.handleSubmit}
@@ -210,7 +226,7 @@ class BoardReviewsTable extends Component {
               onClick={this.handlePagination}
             />
           </div>
-          <div className="col-3">
+          <div className="col-3 d-none d-lg-block">
             <div className="row">
               글갯수:
               <select

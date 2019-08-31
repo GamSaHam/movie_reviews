@@ -31,13 +31,26 @@ class BestReviewsTable extends Component {
       <table className="table">
         <thead>
           <tr>
-            {this.state.column.map(value => (
-              <th scope="col" className="text-center">
-                {value}
-              </th>
-            ))}
+            <th scope="col" className="text-center ">
+              번호
+            </th>
+
+            <th scope="col" className="text-center d-none d-lg-table-cell">
+              영화
+            </th>
+
+            <th scope="col" className="text-center">
+              제목
+            </th>
+            <th scope="col" className="text-center d-none d-lg-table-cell">
+              작성자
+            </th>
+            <th scope="col" className="text-center">
+              조회수
+            </th>
           </tr>
         </thead>
+
         <tbody>
           {this.state.reviews.map((currentElement, index) => (
             <React.Fragment>
@@ -46,17 +59,22 @@ class BestReviewsTable extends Component {
                   {index + 1}
                 </td>
 
-                <td className="text-center" style={{ width: '15%' }}>
-                  {currentElement.movie.name}
-                </td>
+                <div className="d-none d-lg-block">
+                  <td className="text-center" style={{ width: '15%' }}>
+                    {currentElement.movie.name}
+                  </td>
+                </div>
+
                 <td className="text-center" style={{ width: '55%' }}>
                   <Link to={'/review/' + currentElement._id}>
                     {currentElement.title}
                   </Link>
                 </td>
-                <td className="text-center" style={{ width: '10%' }}>
-                  {currentElement.userName}
-                </td>
+                <div className="d-none d-lg-block">
+                  <td className="text-center " style={{ width: '10%' }}>
+                    {currentElement.userName}
+                  </td>
+                </div>
                 <td className="text-center" style={{ width: '10%' }}>
                   {currentElement.views}
                 </td>
