@@ -13,15 +13,27 @@ class Header extends Component {
       <div>
         <div className="border-bottom d-block d-md-none">
           <nav className=" d-flex justify-content-end navbar shadow-none navbar-light bg-light">
-            <div className="mt-1">
-              <a href="#">{user.name + '님'}</a>
-              <button
-                className="ml-2 btn btn-primary"
-                onClick={() => onLogout()}
-              >
-                로그아웃
-              </button>
-            </div>
+            {_.isEmpty(user) ? (
+              <div className="ml-2 p-1">
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={() => onShowModal(true)}
+                >
+                  Login
+                </button>
+              </div>
+            ) : (
+              <div className="mt-1">
+                <a href="#">{user.name + '님'}</a>
+                <button
+                  className="ml-2 btn btn-primary"
+                  onClick={() => onLogout()}
+                >
+                  로그아웃
+                </button>
+              </div>
+            )}
             <button
               className="navbar-toggler ml-2"
               type="button"
