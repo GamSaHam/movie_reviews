@@ -10,11 +10,11 @@ class Start extends Component {
 
     for (let i = 1; i <= 5; i++) {
       if (val >= 1) {
-        star.push(<i className="fa fa-star text-warning" />);
+        star.push(<i className="fa fa-star text-warning  " />);
       } else if (val <= 0) {
-        star.push(<i className="far fa-star text-warning" />);
+        star.push(<i className="far fa-star text-warning  " />);
       } else {
-        star.push(<i className="fas fa-star-half-alt text-warning" />);
+        star.push(<i className="fas fa-star-half-alt text-warning  " />);
       }
 
       val = val - 1;

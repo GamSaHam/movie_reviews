@@ -119,6 +119,7 @@ class App extends Component {
                 user={this.state.user}
                 onShowModal={this.showLoginModal}
                 onLogout={this.handleLogout}
+                onCheckLogin={this.handleLoginCheck}
               />
               <Switch>
                 <Route path="/main" render={props => <Home {...props} />} />

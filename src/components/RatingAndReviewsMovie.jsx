@@ -63,10 +63,10 @@ class RatingAndReviewsMovie extends Component {
         <h1>평점 & 리뷰</h1>
 
         <div className="row">
-          <div className="accordion col-8 " id="accordionExample">
+          <div className="accordion col-md-8 " id="accordionExample">
             {this.renderMovieCard()}
           </div>
-          <div className="col-4 d-flex flex-column bd-highlight mb-3">
+          <div className="col-md-4 d-flex flex-column bd-highlight mb-3">
             <h2>스포트 라이트</h2>
             <img
               src={'/img/popcorn.jpg'}
