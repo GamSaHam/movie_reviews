@@ -248,28 +248,28 @@ class Slider extends Component {
           <hr />
           <div className="pt-5 pb-5 slider-bg ">
             <div
-              id="carouselExampleIndicators"
+              id="carouselExampleIndicators2"
               className="carousel slide"
               data-ride="carousel"
               data-interval="false"
             >
               <ol className="carousel-indicators mb-0 pb-0">
                 <button
-                  data-target="#carouselExampleIndicators"
+                  data-target="#carouselExampleIndicators2"
                   data-slide-to="0"
                   className="btn btn-primary active mr-1"
                 >
                   평점
                 </button>
                 <button
-                  data-target="#carouselExampleIndicators"
+                  data-target="#carouselExampleIndicators2"
                   data-slide-to="1"
                   className="btn btn-primary  mr-1"
                 >
                   조회수
                 </button>
                 <button
-                  data-target="#carouselExampleIndicators"
+                  data-target="#carouselExampleIndicators2"
                   data-slide-to="2"
                   className="btn btn-primary  mr-1"
                 >
@@ -300,7 +300,7 @@ class Slider extends Component {
 
               <a
                 className="carousel-control-prev"
-                href="#carouselExampleIndicators"
+                href="#carouselExampleIndicators2"
                 role="button"
                 data-slide="prev"
               >
@@ -312,7 +312,7 @@ class Slider extends Component {
               </a>
               <a
                 className="carousel-control-next"
-                href="#carouselExampleIndicators"
+                href="#carouselExampleIndicators2"
                 role="button"
                 data-slide="next"
               >
