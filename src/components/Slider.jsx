@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { toast } from 'react-toastify';
 import history from '../history';
 
 import {
@@ -32,7 +32,7 @@ class Slider extends Component {
       this.setState({ bestRatingMovies });
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
-        // this.props.history.replace('/not-found');
+        toast.error('An unexpected network error');
       }
     }
   }
@@ -44,7 +44,7 @@ class Slider extends Component {
       this.setState({ bestViewsMovies });
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
-        // this.props.history.replace('/not-found');
+        toast.error('An unexpected network error');
       }
     }
   }
@@ -56,7 +56,7 @@ class Slider extends Component {
       this.setState({ bestRecentMovies });
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
-        // this.props.history.replace('/not-found');
+        toast.error('An unexpected network error');
       }
     }
   }
