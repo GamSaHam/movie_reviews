@@ -158,11 +158,14 @@ class BoardReviewsTable extends Component {
                   <td className="text-center" style={{ width: '10%' }}>
                     {index + 1}
                   </td>
-                  <div className="d-none d-lg-block">
-                    <td className="text-center" style={{ width: '10%' }}>
-                      {currentElement.movie.name}
-                    </td>
-                  </div>
+
+                  <td
+                    className="text-center d-none d-lg-table-cell"
+                    style={{ width: '10%' }}
+                  >
+                    {currentElement.movie.name}
+                  </td>
+
                   <td className="text-center" style={{ width: '50%' }}>
                     <Link to={'/review/' + currentElement._id}>
                       {currentElement.title}
@@ -171,11 +174,14 @@ class BoardReviewsTable extends Component {
                   <td className="text-center" style={{ width: '10%' }}>
                     {currentElement.userName}
                   </td>
-                  <div className="d-none d-lg-block">
-                    <td className="text-center" style={{ width: '10%' }}>
-                      {moment(currentElement.publishDate).format('YYYY-MM-D')}
-                    </td>
-                  </div>
+
+                  <td
+                    className="text-center d-none d-lg-table-cell"
+                    style={{ width: '10%' }}
+                  >
+                    {moment(currentElement.publishDate).format('YYYY-MM-D')}
+                  </td>
+
                   <td className="text-center" style={{ width: '10%' }}>
                     {currentElement.views}
                   </td>
