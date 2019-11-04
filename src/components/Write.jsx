@@ -109,6 +109,8 @@ class Write extends Form {
 
     let ret = await saveReview(this.state.data);
 
+    console.log(ret);
+
     this.setState({
       isShowPopup: true,
       popupMessage: '저장되었습니다.',
