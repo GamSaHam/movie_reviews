@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import Joi from 'joi-browser';
-import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
-import { getReview, saveReview } from '../services/reviewService';
-import { getMovies } from '../services/movieService';
-import auth from '../services/authService';
-import Form from '../components/common/form';
-import RichEditor from './common/RichEditor';
-import PopupModal from './modal/PopupModal';
-import CustomImageEditor from './CustomImageEditor';
+import React, { Component } from "react";
+import Joi from "joi-browser";
+import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import { getReview, saveReview } from "../services/reviewService";
+import { getMovies } from "../services/movieService";
+import auth from "../services/authService";
+import Form from "../components/common/form";
+import RichEditor from "./common/RichEditor";
+import PopupModal from "./modal/PopupModal";
+import CustomImageEditor from "./CustomImageEditor";
 
 class Write extends Form {
   state = {
     data: {
-      movieId: '',
-      title: '',
-      rating: '',
+      movieId: "",
+      title: "",
+      rating: "",
       content: {},
-      userId: '',
-      userName: '',
-      views: ''
+      userId: "",
+      userName: "",
+      views: ""
     },
-    editorState: '',
+    editorState: "",
     movies: [],
     errors: {},
     isShowPopup: false,
-    popupMessage: '',
-    id: ''
+    popupMessage: "",
+    id: ""
   };
 
   constructor(props) {
@@ -38,17 +38,17 @@ class Write extends Form {
     _id: Joi.string(),
     movieId: Joi.string()
       .required()
-      .label('Movie'),
+      .label("Movie"),
     title: Joi.string()
       .required()
       .min(5)
       .max(50)
-      .label('Title'),
+      .label("Title"),
     rating: Joi.number()
       .min(0)
       .max(5)
       .required()
-      .label('Rating'),
+      .label("Rating"),
     content: Joi.object(),
     userId: Joi.string(),
     userName: Joi.string(),
@@ -64,7 +64,7 @@ class Write extends Form {
     try {
       const reviewId = this.props.match.params.id;
 
-      if (reviewId === 'new') return;
+      if (reviewId === "new") return;
 
       const { data: review } = await getReview(reviewId);
 
@@ -78,7 +78,7 @@ class Write extends Form {
       this.setState({ data: this.mapToViewModel(review) });
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
-        this.props.history.replace('/not-found');
+        this.props.history.replace("/not-found");
     }
   }
 
@@ -107,13 +107,13 @@ class Write extends Form {
     const contentState = this.state.editorState.getCurrentContent();
     this.state.data.content = JSON.stringify(convertToRaw(contentState));
 
+    console.log("test1");
     let ret = await saveReview(this.state.data);
-
-    console.log(ret);
+    console.log("test2");
 
     this.setState({
       isShowPopup: true,
-      popupMessage: '저장되었습니다.',
+      popupMessage: "저장되었습니다.",
       id: ret.data._id
     });
 
@@ -127,7 +127,7 @@ class Write extends Form {
   handlePopupCallback = () => {
     this.setState({ isShowPopup: false });
 
-    window.location.href = '/write/' + this.state.id;
+    window.location.href = "/write/" + this.state.id;
   };
 
   render() {
@@ -136,9 +136,9 @@ class Write extends Form {
         <div className="container pt-5">
           <h1 className="">리뷰작성하기</h1>
           <form onSubmit={this.handleSubmit}>
-            {this.renderSelect('movieId', 'Movie', this.state.movies)}
-            {this.renderInput('title', 'Title')}
-            {this.renderInput('rating', 'Rating')}
+            {this.renderSelect("movieId", "Movie", this.state.movies)}
+            {this.renderInput("title", "Title")}
+            {this.renderInput("rating", "Rating")}
 
             <CustomImageEditor
               editorState={this.state.editorState}
@@ -147,11 +147,11 @@ class Write extends Form {
 
             <hr />
             <div className="d-flex justify-content-end mr-3">
-              {this.renderButton('Save')}
+              {this.renderButton("Save")}
             </div>
           </form>
         </div>
-        <div className="" style={{ height: '400px' }} />
+        <div className="" style={{ height: "400px" }} />
 
         <PopupModal
           isShow={this.state.isShowPopup}
