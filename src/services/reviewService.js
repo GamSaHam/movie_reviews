@@ -37,7 +37,7 @@ export function saveReview(review) {
     delete body._id;
     return http.put(reviewUrl(review._id), body);
   }
-  console.log(review);
+  console.log("review" + review);
 
   return http.post(apiEndpoint, review);
 }
